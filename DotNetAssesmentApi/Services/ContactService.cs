@@ -41,7 +41,9 @@ namespace DotNetAssesmentApi.Services
             Contact entity = _repository.Get(viewModel.Id);
             _mapper.Map(viewModel, entity);
             entity.Phones = viewModel.Phones
-                .Select(pvm => _mapper.Map<Phone>(pvm)).ToList();
+                .Select(pvm => _mapper.Map<Phone>(pvm, opt => {
+                    opt.AfterMap((src, phone) => phone.ContactId = viewModel.Id);
+                })).ToList();
             _repository.Update(entity);
             return viewModel;
         }
