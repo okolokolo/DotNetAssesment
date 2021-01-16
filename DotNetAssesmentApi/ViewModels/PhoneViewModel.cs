@@ -1,4 +1,7 @@
 ﻿using DotNetAssesmentDataContext;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace DotNetAssesmentApi.ViewModels
@@ -8,6 +11,8 @@ namespace DotNetAssesmentApi.ViewModels
         [Required]
         public string Number { get; set; }
         [Required]
-        public string Type { get; set; }
+        [EnumDataType(typeof(PhoneTypeEnum))]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PhoneTypeEnum Type { get; set; }
     }
 }

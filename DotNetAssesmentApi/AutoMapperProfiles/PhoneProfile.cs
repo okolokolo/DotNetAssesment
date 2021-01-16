@@ -12,13 +12,13 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
         {
             CreateMap<Phone, PhoneViewModel>()
                 .ForMember(viewModel => viewModel.Type, opt => opt.MapFrom(
-                    entity => entity.PhoneType.Name))
+                    entity => (PhoneTypeEnum)entity.PhoneTypeId))
                 .ForMember(viewModel => viewModel.Number, opt => opt.MapFrom(
                     entity => String.Format("{0:###-###-####}", entity.Number)));
 
             CreateMap<PhoneViewModel, Phone>()
                 .ForMember(entity => entity.PhoneTypeId, opt => opt.MapFrom(
-                    viewModel => (int)Enum.Parse(typeof(PhoneTypeEnum), viewModel.Type)))
+                    viewModel => (int)viewModel.Type))
                 .ForMember(entity => entity.Number, opt => opt.MapFrom(
                     viewModel => uint.Parse(viewModel.Number.Replace("-",""))));
         }

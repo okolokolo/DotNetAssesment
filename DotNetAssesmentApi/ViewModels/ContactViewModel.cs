@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using DotNetAssesmentDataContext;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,7 +24,6 @@ namespace DotNetAssesmentApi.ViewModels
         public AddressViewModel Address { get; set; }
         [Required]
         //Renaming the Property to Phone based on json schema in exercise
-        [JsonProperty(PropertyName = "Phone")]
         public List<PhoneViewModel> Phones { get; set; }
         [JsonRequired]
         public string Email { get; set; }

@@ -32,20 +32,20 @@ namespace DotNetAssesmentApi.Controllers
             return _service.Create(viewModel);
         }
 
-        [HttpPut("id:int")]
+        [HttpPut("{id:int}")]
         public ContactViewModel Update(int id, [FromBody] ContactViewModel viewModel)
         {
             viewModel.Id = id;
             return _service.Update(viewModel);
         }
 
-        [HttpGet("id:int")]
+        [HttpGet("{id:int}")]
         public ContactViewModel Get(int id)
         {
             return _service.Get(id);
         }
 
-        [HttpDelete("id:int")]
+        [HttpDelete("{id:int}")]
         public string Delete(int id)
         {
             _service.Delete(id);
