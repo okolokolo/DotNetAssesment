@@ -23,9 +23,10 @@ namespace DotNetAssesmentApi.ViewModels
         [Required]
         public AddressViewModel Address { get; set; }
         [Required]
-        //Renaming the Property to Phone based on json schema in exercise
+        //Renaming the Property to phone based on json schema in exercise
+        [JsonProperty(PropertyName = "phone")]
         public List<PhoneViewModel> Phones { get; set; }
-        [JsonRequired]
+        [Required]
         public string Email { get; set; }
     }
 }

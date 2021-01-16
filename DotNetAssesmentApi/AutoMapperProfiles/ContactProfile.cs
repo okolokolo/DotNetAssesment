@@ -71,7 +71,7 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
 
         private string GetHomePhoneNumber(IList<Phone> phones)
         {
-            Phone phone = phones.SingleOrDefault(p => p.PhoneTypeId == (int)PhoneTypeEnum.HOME);
+            Phone phone = phones.SingleOrDefault(p => p.PhoneTypeId == (int)PhoneTypeEnum.home);
             return (phone == null) ? string.Empty : string.Format("{0:###-###-####}", phone.Number);
         }
     }

@@ -29,17 +29,17 @@ namespace DotNetAssesmentDataContext
                 Console.WriteLine("Inserting PhoneTypes...");
                 db.PhoneTypes.AddRange(new List<PhoneType>() {
                     new PhoneType {
-                        Id = (int)PhoneTypeEnum.HOME,
+                        Id = (int)PhoneTypeEnum.home,
                         Name = "home"
                     },
                     new PhoneType
                     {
-                        Id = (int)PhoneTypeEnum.WORK,
+                        Id = (int)PhoneTypeEnum.work,
                         Name = "work"
                     },
                     new PhoneType
                     {
-                        Id = (int)PhoneTypeEnum.MOBILE,
+                        Id = (int)PhoneTypeEnum.mobile,
                         Name = "mobile"
                     }
                 });
@@ -60,12 +60,12 @@ namespace DotNetAssesmentDataContext
                     {
                         new Phone() { 
                             Number = 3026119148, 
-                            PhoneTypeId = (int)PhoneTypeEnum.HOME 
+                            PhoneTypeId = (int)PhoneTypeEnum.home 
                         },
                         new Phone()
                         {
                             Number = 3025329427,
-                            PhoneTypeId = (int)PhoneTypeEnum.MOBILE
+                            PhoneTypeId = (int)PhoneTypeEnum.mobile
                         }
                     }
                 });
