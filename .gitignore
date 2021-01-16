@@ -340,3 +340,5 @@ ASALocalRun/
 healthchecksdb
 /DotNetAssesmentDataContext/Migrations
 /DotNetAssesmentApi/ContactDB.db
+/DotNetAssesmentApi/ContactDB.db-shm
+/DotNetAssesmentApi/ContactDB.db-wal
