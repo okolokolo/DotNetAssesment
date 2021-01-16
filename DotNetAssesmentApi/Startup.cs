@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using DotNetAssesmentApi.Repositories;
+using DotNetAssesmentDataContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +28,10 @@ namespace DotNetAssesmentApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ContactDbContext>();
+            services.AddScoped<IContactRepository, ContactRepository>();
+
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
 
             // Register the Swagger generator
