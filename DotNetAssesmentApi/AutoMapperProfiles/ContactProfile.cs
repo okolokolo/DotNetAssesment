@@ -17,11 +17,11 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
             CreateMap<Contact, CallListViewModel>()
               .ForMember(viewModel => viewModel.Phone,
                    opt => opt.MapFrom(entity => GetHomePhoneNumber(entity.Phones)))
-              .ForMember(viewModel => viewModel.Name.First,
+              .ForPath(viewModel => viewModel.Name.First,
                    opt => opt.MapFrom(entity => entity.FirstName))
-              .ForMember(viewModel => viewModel.Name.Middle,
+              .ForPath(viewModel => viewModel.Name.Middle,
                    opt => opt.MapFrom(entity => entity.MiddleName))
-              .ForMember(viewModel => viewModel.Name.Last,
+              .ForPath(viewModel => viewModel.Name.Last,
                    opt => opt.MapFrom(entity => entity.LastName));
             #endregion
 
@@ -29,19 +29,19 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
             CreateMap<Contact, ContactViewModel>()
                .ForMember(viewModel => viewModel.Email,
                     opt => opt.MapFrom(entity => entity.Email))
-               .ForMember(viewModel => viewModel.Name.First,
+               .ForPath(viewModel => viewModel.Name.First,
                     opt => opt.MapFrom(entity => entity.FirstName))
-               .ForMember(viewModel => viewModel.Name.Middle,
+               .ForPath(viewModel => viewModel.Name.Middle,
                     opt => opt.MapFrom(entity => entity.MiddleName))
-               .ForMember(viewModel => viewModel.Name.Last,
+               .ForPath(viewModel => viewModel.Name.Last,
                     opt => opt.MapFrom(entity => entity.LastName))
-               .ForMember(viewModel => viewModel.Address.Street,
+               .ForPath(viewModel => viewModel.Address.Street,
                     opt => opt.MapFrom(entity => entity.Street))
-               .ForMember(viewModel => viewModel.Address.City,
+               .ForPath(viewModel => viewModel.Address.City,
                     opt => opt.MapFrom(entity => entity.City))
-               .ForMember(viewModel => viewModel.Address.State,
+               .ForPath(viewModel => viewModel.Address.State,
                     opt => opt.MapFrom(entity => entity.State))
-               .ForMember(viewModel => viewModel.Address.Zip,
+               .ForPath(viewModel => viewModel.Address.Zip,
                     opt => opt.MapFrom(entity => entity.Zip.ToString()));
             #endregion
 

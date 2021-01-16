@@ -19,8 +19,8 @@ namespace DotNetAssesmentApi.Repositories
         public IEnumerable<Contact> Get()
         {
             return _contactDbContext.Contacts
-                .Include(nameof(Phone))
-                .Include(nameof(PhoneType))
+                .Include(c => c.Phones)
+                .ThenInclude(p => p.PhoneType)
                 .AsEnumerable();
         }
 
