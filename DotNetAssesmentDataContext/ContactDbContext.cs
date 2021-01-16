@@ -1,5 +1,6 @@
 ﻿using DotNetAssesmentDataContext.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace DotNetAssesmentDataContext
 {
@@ -9,16 +10,27 @@ namespace DotNetAssesmentDataContext
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Contact> Contacts { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ContactDbContext() : base()
         {
-            optionsBuilder.UseSqlite("Data Source=ContactDB.db;");
+
+        }
+
+        private string _connectionString { get; set; } = @"Data Source=ContactDB.db;";
+        public ContactDbContext(string connectionString) : base()
+        {
+            _connectionString = connectionString;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {                           
+           optionsBuilder.UseSqlite(_connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PhoneType>().ToTable("PhoneTypes");
-            modelBuilder.Entity<Phone>().ToTable("Phones");
-            modelBuilder.Entity<Contact>().ToTable("Contacts");
+            modelBuilder.Entity<PhoneType>(x => x.ToTable("PhoneTypes"));
+            modelBuilder.Entity<Phone>(x => x.ToTable("Phones"));
+            modelBuilder.Entity<Contact>(x => x.ToTable("Contacts"));
         }
 
     }
