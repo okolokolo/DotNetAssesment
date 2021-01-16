@@ -8,7 +8,6 @@ namespace DotNetAssesmentDataContext.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
-        //Normally I would make this unique
         public string Email { get; set; }
         public string Street { get; set; }
         public string State { get; set; }

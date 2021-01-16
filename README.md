@@ -7,3 +7,5 @@
 	b. Update-Database
 4. In the appSettings file, in the DotNetAssesmentDataContext console application, set the default connection to the file path of the generated sqlite database.
 5. Run the DotNetAssesmentDataContext console application to seed the data. 
+6. Run the api to test the routes
+7. Run the tests in the test project

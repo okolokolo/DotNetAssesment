@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAssesmentApi", "DotNe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAssesmentDataContext", "DotNetAssesmentDataContext\DotNetAssesmentDataContext.csproj", "{FFDFBF70-577D-4183-A69D-3F571FD1F004}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAssesmentTest", "DotNetAssesmentTest\DotNetAssesmentTest.csproj", "{A1B744E2-F9BF-46A6-9F8E-298FFEA4C13A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FFDFBF70-577D-4183-A69D-3F571FD1F004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFDFBF70-577D-4183-A69D-3F571FD1F004}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFDFBF70-577D-4183-A69D-3F571FD1F004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B744E2-F9BF-46A6-9F8E-298FFEA4C13A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B744E2-F9BF-46A6-9F8E-298FFEA4C13A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B744E2-F9BF-46A6-9F8E-298FFEA4C13A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B744E2-F9BF-46A6-9F8E-298FFEA4C13A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,6 @@
-﻿using DotNetAssesmentDataContext;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DotNetAssesmentApi.ViewModels
 {
@@ -27,6 +22,7 @@ namespace DotNetAssesmentApi.ViewModels
         [JsonProperty(PropertyName = "phone")]
         public List<PhoneViewModel> Phones { get; set; }
         [Required]
+        //Normally, I would add an Email regex on this as well.
         public string Email { get; set; }
     }
 }

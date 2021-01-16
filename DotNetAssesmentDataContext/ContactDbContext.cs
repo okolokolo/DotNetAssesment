@@ -30,7 +30,11 @@ namespace DotNetAssesmentDataContext
         {
             modelBuilder.Entity<PhoneType>(x => x.ToTable("PhoneTypes"));
             modelBuilder.Entity<Phone>(x => x.ToTable("Phones"));
-            modelBuilder.Entity<Contact>(x => x.ToTable("Contacts"));
+            modelBuilder.Entity<Contact>(x => {
+                x.ToTable("Contacts");
+                x.HasIndex(u => u.Email)
+                 .IsUnique();
+            });
         }
 
     }

@@ -11,6 +11,7 @@ namespace DotNetAssesmentApi.ViewModels
         [Required]
         public string State { get; set; }
         [Required]
+        //Normally, I would add a max length data annotation for this
         public string Zip { get; set; }
     }
 }
