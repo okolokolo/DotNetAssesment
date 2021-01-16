@@ -23,9 +23,5 @@
     <ProjectReference Include="..\DotNetAssesmentDataContext\DotNetAssesmentDataContext.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 
 </Project>

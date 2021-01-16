@@ -24,18 +24,16 @@ namespace DotNetAssesmentApi.Repositories
                 .AsEnumerable();
         }
 
-        public Contact Create(Contact contact)
+        public void Create(Contact contact)
         {
             _contactDbContext.Contacts.Add(contact);
             _contactDbContext.SaveChanges();
-            return contact;
         }
 
-        public Contact Update(Contact contact)
+        public void Update(Contact contact)
         {
             _contactDbContext.Contacts.Update(contact);
             _contactDbContext.SaveChanges();
-            return contact;
         }
 
         public Contact Get(int id)

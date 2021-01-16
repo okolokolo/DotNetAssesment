@@ -6,10 +6,10 @@ namespace DotNetAssesmentApi.Repositories
     //Normally I would inherit this from a base abstract repository interface
     public interface IContactRepository
     {
-        Contact Create(Contact contact);
+        void Create(Contact contact);
         void Delete(int id);
         IEnumerable<Contact> Get();
         Contact Get(int id);
-        Contact Update(Contact contact);
+        void Update(Contact contact);
     }
 }

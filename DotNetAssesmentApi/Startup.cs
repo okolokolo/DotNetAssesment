@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using DotNetAssesmentApi.Repositories;
+using DotNetAssesmentApi.Services;
 using DotNetAssesmentDataContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,9 +30,12 @@ namespace DotNetAssesmentApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ContactDbContext>();
-            services.AddScoped<IContactRepository, ContactRepository>();
-
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactService, ContactService>();
+
+
             services.AddControllers();
 
             // Register the Swagger generator

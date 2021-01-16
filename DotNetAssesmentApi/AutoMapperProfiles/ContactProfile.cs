@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
 using DotNetAssesmentApi.ViewModels;
+using DotNetAssesmentDataContext;
 using DotNetAssesmentDataContext.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DotNetAssesmentApi.AutoMapperProfiles
 {
@@ -8,6 +12,20 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
     {
         public ContactProfile()
         {
+
+            #region Contact to CallListViewModel
+            CreateMap<Contact, CallListViewModel>()
+              .ForMember(viewModel => viewModel.Phone,
+                   opt => opt.MapFrom(entity => GetHomePhoneNumber(entity.Phones)))
+              .ForMember(viewModel => viewModel.Name.First,
+                   opt => opt.MapFrom(entity => entity.FirstName))
+              .ForMember(viewModel => viewModel.Name.Middle,
+                   opt => opt.MapFrom(entity => entity.MiddleName))
+              .ForMember(viewModel => viewModel.Name.Last,
+                   opt => opt.MapFrom(entity => entity.LastName));
+            #endregion
+
+            #region Contact to ContactViewModel
             CreateMap<Contact, ContactViewModel>()
                .ForMember(viewModel => viewModel.Email,
                     opt => opt.MapFrom(entity => entity.Email))
@@ -25,7 +43,9 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
                     opt => opt.MapFrom(entity => entity.State))
                .ForMember(viewModel => viewModel.Address.Zip,
                     opt => opt.MapFrom(entity => entity.Zip.ToString()));
+            #endregion
 
+            #region ContactViewModel to Contact
             CreateMap<ContactViewModel, Contact>()
                .ForMember(entity => entity.Email,
                     opt => opt.MapFrom(viewModel => viewModel.Email))
@@ -44,6 +64,15 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
                .ForMember(entity => entity.Zip,
                     opt => opt.MapFrom(viewModel => int.Parse(viewModel.Address.Zip)))
                .ForMember(entity => entity.Phones, opt => opt.Ignore());
+
+            #endregion
+
+        }
+
+        private string GetHomePhoneNumber(IList<Phone> phones)
+        {
+            Phone phone = phones.SingleOrDefault(p => p.PhoneTypeId == (int)PhoneTypeEnum.HOME);
+            return (phone == null) ? string.Empty : string.Format("{0:###-###-####}", phone.Number);
         }
     }
 }

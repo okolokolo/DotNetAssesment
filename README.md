@@ -5,5 +5,5 @@
 3. Run the following commands in the Package Manager Console using the DotNetAssesmentDataContext as Default project
 	a. Add-Migration InitialCreate
 	b. Update-Database
-4. Set the appSettings configuration in the DotNetAssesmentDataContext console application
+4. In the appSettings file, in the DotNetAssesmentDataContext console application, set the default connection to the file path of the generated sqlite database.
 5. Run the DotNetAssesmentDataContext console application to seed the data. 
