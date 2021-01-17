@@ -104,14 +104,16 @@ namespace DotNetAssesmentDataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PhoneType>(x => x.ToTable("PhoneTypes"));
-            modelBuilder.Entity<Phone>(x => {
+            modelBuilder.Entity<Phone>(x => { 
                 x.ToTable("Phones");
                 x.HasIndex(p => new { p.PhoneTypeId, p.ContactId })
+                 .HasDatabaseName("UC_Phones_ContactId_PhoneTypeId")
                  .IsUnique();
             });
             modelBuilder.Entity<Contact>(x => {
                 x.ToTable("Contacts");
                 x.HasIndex(u => u.Email)
+                 .HasDatabaseName("UC_Contacts_Email")
                  .IsUnique();
             });
         }

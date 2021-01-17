@@ -9,7 +9,9 @@ namespace DotNetAssesmentApi.Controllers
     [Produces("application/json")]
     [ApiController]
     //Normally I would have the api routes return response models inherited from a base response model
+    //This base response model would have success boolean property and reasons string array. 
     //Also I would have set up a custom middleware in the startup for exception handling.
+    //Also I would have an action filter attribute to handle unique contraint exceptions and display a more user friend error message. 
     public class ContactController : ControllerBase
     {
         readonly IContactService _service;

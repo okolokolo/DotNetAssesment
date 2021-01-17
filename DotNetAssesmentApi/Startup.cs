@@ -66,7 +66,7 @@ namespace DotNetAssesmentApi
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
+            // app.UseMiddleware<CustomMiddleware>(); This is how the middleware would be implemented
             app.UseRouting();
 
             app.UseAuthorization();
