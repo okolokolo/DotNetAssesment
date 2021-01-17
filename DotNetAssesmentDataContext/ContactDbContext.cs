@@ -105,6 +105,9 @@ namespace DotNetAssesmentDataContext
             modelBuilder.Entity<PhoneType>(x => x.ToTable("PhoneTypes"));
             modelBuilder.Entity<Phone>(x => { 
                 x.ToTable("Phones");
+                x.HasIndex(p => p.Number )
+                 .HasDatabaseName("UC_Phones_Number")
+                 .IsUnique();
                 x.HasIndex(p => new { p.PhoneTypeId, p.ContactId })
                  .HasDatabaseName("UC_Phones_ContactId_PhoneTypeId")
                  .IsUnique();
