@@ -42,7 +42,7 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
                .ForPath(viewModel => viewModel.Address.State,
                     opt => opt.MapFrom(entity => entity.State))
                .ForPath(viewModel => viewModel.Address.Zip,
-                    opt => opt.MapFrom(entity => entity.Zip.ToString()));
+                    opt => opt.MapFrom(entity => string.Format("{0:#####-####}", entity.Zip.ToString())));
             #endregion
 
             #region ContactViewModel to Contact
@@ -62,7 +62,7 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
                .ForMember(entity => entity.State,
                     opt => opt.MapFrom(viewModel => viewModel.Address.State))
                .ForMember(entity => entity.Zip,
-                    opt => opt.MapFrom(viewModel => int.Parse(viewModel.Address.Zip)))
+                    opt => opt.MapFrom(viewModel => int.Parse(viewModel.Address.Zip.Replace("-",""))))
                .ForMember(entity => entity.Phones, opt => opt.Ignore());
 
             #endregion

@@ -11,7 +11,7 @@ namespace DotNetAssesmentApi.ViewModels
         [Required]
         public string State { get; set; }
         [Required]
-        //Normally, I would add a max length data annotation for this
-        public string Zip { get; set; }
+        [RegularExpression(@"^\d{5}(?:[-\s]\d{4})?$", ErrorMessage = "You must enter a zip code in a valid format. XXXXX or XXXXX.XXXX")]
+public string Zip { get; set; }
     }
 }

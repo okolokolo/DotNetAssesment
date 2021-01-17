@@ -12,7 +12,6 @@ namespace DotNetAssesmentDataContext.Models
         public string Street { get; set; }
         public string State { get; set; }
         public string City { get; set; }
-        //Normally I would add a max length for this
         public int Zip { get; set; }
         public List<Phone> Phones { get; set; } = new List<Phone>();
     }

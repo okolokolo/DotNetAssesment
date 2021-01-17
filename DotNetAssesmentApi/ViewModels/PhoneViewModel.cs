@@ -8,8 +8,7 @@ namespace DotNetAssesmentApi.ViewModels
     public class PhoneViewModel
     {
         [Required]
-        //Normally, I would add a max length data annotation for this
-        //Also, I would add a Phone regex on this as well.
+        [RegularExpression(@"^(?:\s*)\d{3}-\d{3}-\d{4}(?:\s*)$", ErrorMessage = "Please enter phone no using XXX-XXX-XXXX format")]
         public string Number { get; set; }
         [Required]
         //I was trying to figure out how to get the enum to display as a string[] in swagger schema

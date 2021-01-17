@@ -14,7 +14,7 @@ namespace DotNetAssesmentApi.AutoMapperProfiles
                 .ForMember(viewModel => viewModel.Type, opt => opt.MapFrom(
                     entity => (PhoneTypeEnum)entity.PhoneTypeId))
                 .ForMember(viewModel => viewModel.Number, opt => opt.MapFrom(
-                    entity => String.Format("{0:###-###-####}", entity.Number)));
+                    entity => string.Format("{0:###-###-####}", entity.Number)));
 
             CreateMap<PhoneViewModel, Phone>()
                 .ForMember(entity => entity.PhoneTypeId, opt => opt.MapFrom(

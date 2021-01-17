@@ -22,7 +22,7 @@ namespace DotNetAssesmentApi.ViewModels
         [JsonProperty(PropertyName = "phone")]
         public List<PhoneViewModel> Phones { get; set; }
         [Required]
-        //Normally, I would add an Email regex on this as well.
+        [RegularExpression(@"^[\w.]+@.*\.com$", ErrorMessage = "Email must be a the following format xxxxxx@xxx.com")]
         public string Email { get; set; }
     }
 }

@@ -26,14 +26,28 @@ namespace DotNetAssesmentDataContext
 
         public void SeedData()
         {
+            Console.WriteLine("Clearing database if data exists...");
+            bool dataCleared = false;
             if (this.Phones.Count() > 0)
+            {
                 this.Phones.RemoveRange(this.Phones);
+                dataCleared = true;
+            }
 
             if (this.PhoneTypes.Count() > 0)
+            {
                 this.PhoneTypes.RemoveRange(this.PhoneTypes);
+                dataCleared = true;
+            }
 
             if (this.Contacts.Count() > 0)
+            {
                 this.Contacts.RemoveRange(this.Contacts);
+                dataCleared = true;
+            }
+
+            if(dataCleared)
+                this.SaveChanges();
 
             Console.WriteLine("Inserting PhoneTypes...");
             this.PhoneTypes.AddRange(new List<PhoneType>() {
