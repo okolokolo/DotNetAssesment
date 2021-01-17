@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DotNetAssesmentApi.Repositories;
 using DotNetAssesmentApi.ViewModels;
+using DotNetAssesmentDataContext;
 using DotNetAssesmentDataContext.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +63,7 @@ namespace DotNetAssesmentApi.Services
         public IEnumerable<CallListViewModel> GetCallList()
         {
             return _repository.Get()
+                .Where(c => c.Phones.Any(p => p.PhoneTypeId == (int)PhoneTypeEnum.home))
                 .OrderBy(c => c.LastName)
                 .OrderBy(c => c.FirstName)
                 .Select(c => _mapper.Map<CallListViewModel>(c));

@@ -2,7 +2,6 @@
 using DotNetAssesmentApi.ViewModels;
 using DotNetAssesmentDataContext;
 using DotNetAssesmentDataContext.Models;
-using System;
 
 namespace DotNetAssesmentApi.AutoMapperProfiles
 {
